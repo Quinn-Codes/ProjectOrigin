@@ -1,10 +1,60 @@
 # ProjectOrigin
 ## Warning: Deprecated
-In 2021 Discord release a massive update to their API which made a large portion of this project non-functional. Below is a rundown of how the project was intended to work.
+In 2021 Discord release a massive update to their API which made a large portion of this project non-functional. Below is a rundown of how the project was intended to work. The project was initially started in my Sophomore year in high school in 2017- the last update the project received was in 2022. The Discord API update had come out and, since I was busy in college, I didn't have the extra time needed to convert the whole project to the new API system.
 Note: Forked from the original repository as I no longer have access to the original github account.
 
 ## Purpose
-On the surface the purpose of this project was to create a creature-collector battler game within [Discord](https://discord.com) using their [Bot API](https://docs.discord.com/developers/reference) similar to Pokemon. However, the true purpose of this project was to serve as a playground for me to learn coding in. I put a lot of work into this project and learned so much as I did. Primarily this is where I sharpened my Object Oriented skills, as well as where I learned skills such as asynchronous programming, UI/UX design, interacting with APIs, and game loop design. The code here has an object-oriented system that describes how different creatures, skills, moves, abilities, and more work together in a collection / battling system. I also briefly worked on a dynamic animation generator that would generate an animated GIF based on parameters.
+On the surface the purpose of this project was to create a creature-collector battler game within [Discord](https://discord.com) using their [Bot API](https://docs.discord.com/developers/reference) similar to Pokemon. However, the true purpose of this project was to serve as a playground and passion project for me to learn coding in. I put a lot of work into this project and learned so much as I did. Primarily this is where I sharpened my Object Oriented skills, as well as where I learned skills such as asynchronous programming, UI/UX design, interacting with APIs, and game loop design. The code here has an object-oriented system that describes how different creatures, skills, moves, abilities, and more work together in a collection / battling system. I also briefly worked on a dynamic animation generator that would generate an animated GIF based on parameters.
 
 ## Example Gameplay
-WIP
+The player would begin by using the ```startadventure``` command and choosing a partner.
+<br>
+<img width="545" height="54" alt="image" src="https://github.com/user-attachments/assets/47837365-b505-4f52-86f8-a90ff26d09b7" />
+<br>
+They can then open up the main menu using the ```menu``` command. Menus originally worked by using 'emoji reactions' as buttons. This was a workaround since Discord didn't have implementable buttons back then. The main menu is how you navigate the different aspects of the game.
+<br>
+<img width="447" height="249" alt="image" src="https://github.com/user-attachments/assets/049cc252-1120-4b94-9872-93552b7a8640" />
+<br>
+After the 2021 API update, buttons were added. That implementation looks more like this.
+<br>
+<img width="261" height="332" alt="image" src="https://github.com/user-attachments/assets/432afe4e-1dff-4a40-92cb-78dc5e434f0e" />
+<br>
+The party menu looks like this. The image used for the party menu was generated live based on the actual stat values of the creatures. Using the 'swap' button you could swap your creatures between different party slots.
+<br>
+<img width="467" height="355" alt="image" src="https://github.com/user-attachments/assets/057135ce-0879-49ac-87b3-372877e267a9" />
+<br>
+For battling other players, you could create a custom 'battle lobby' in the PvP menu.
+<br>
+<img width="466" height="416" alt="image" src="https://github.com/user-attachments/assets/524652d2-3171-4ac9-9d4d-a66c74926f7a" />
+<br>
+You could then invite other players and adjust the settings for the battle.
+<br>
+<img width="456" height="325" alt="image" src="https://github.com/user-attachments/assets/2cbafec2-f799-4579-8af8-4ae3691c0940" />
+<br>
+After both players ready up, the battle begins.
+<br>
+<img width="446" height="327" alt="image" src="https://github.com/user-attachments/assets/2a32296f-a9c0-4ae1-9498-3f15817a2a76" />
+<br>
+At the start of the battle, both players send out their first creature. The game then waits for both players to select their move.
+<br>
+<img width="514" height="343" alt="image" src="https://github.com/user-attachments/assets/1705f6e8-2363-42c4-94d4-efdcb09fc334" />
+<br>
+Before 2021, you couldn't have a message visible to only one person in a channel. Since both players take their turn at the same time, this decision needs to be private. To do this, the bot would privately message each player for their next move.
+<br>
+<img width="464" height="427" alt="image" src="https://github.com/user-attachments/assets/192df7fb-4f7c-42d3-8157-c1589ba1050c" />
+<br>
+Just like in Pokemon, each creature has 4 moves. These moves are fully programmed in the battling system.
+<br>
+<img width="488" height="377" alt="image" src="https://github.com/user-attachments/assets/a3736285-98be-4245-94c4-3157a6b98b77" />
+<br>
+Once both moves are selected, the result will be sent. This continues until one of the players has no creatures left.
+<br>
+<img width="433" height="366" alt="image" src="https://github.com/user-attachments/assets/8ba20399-f15e-46f2-8428-b8804e4bfc61" />
+<br>
+
+## Other Implementations
+There was a WIP animation system. By far, the least visually impressive part of the battling system was when moves were resolved. I wanted to improve this by creating GIF animations on the fly. The system was functional- it just needed expanding. Here's an example- this was generated by the code and the assets for each creature can be swapped out for any other creatures. This system could be expanded to include animations for moves for a more visually interesting battling system.
+
+The code for this can be found in Project/Utilities
+![BattlefieldTest2](https://github.com/user-attachments/assets/d1bdb542-6179-431d-8599-89151350d429)
+
